@@ -1,0 +1,10 @@
+extends base.pug
+
+block title
+  title #{locals.app.name} - #{message}
+
+block content
+  h1= message
+  if stack
+    p
+      code= stack

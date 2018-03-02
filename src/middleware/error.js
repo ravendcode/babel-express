@@ -47,6 +47,11 @@ export default (err, req, res, next) => {
   if (result.statusCode === 500 && config.env === 'development') {
     result.stack = err.stack;
   }
+
   res.status(result.statusCode);
-  res.send({ ...result });
+  if (/^\/api/.test(req.path)) {
+    res.send({ ...result });
+  } else {
+    res.render('error', { ...result });
+  }
 };

@@ -5,10 +5,11 @@ html(lang=locals.app.locale)
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(name='robots' content='all')
-    if title
-      title #{locals.app.name} - #{title}
-    else
-      title #{locals.app.name} - Home
+    block title
+      if title
+        title #{locals.app.name} - #{title}
+      else
+        title #{locals.app.name} - Home
     block styles
       link(rel="stylesheet", href="/node_modules/bootstrap/dist/css/bootstrap.min.css")
   body

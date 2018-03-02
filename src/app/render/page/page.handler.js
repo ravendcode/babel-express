@@ -2,7 +2,7 @@ export default {
   home(req, res) {
     res.render('page/index', { title: 'Home' });
   },
-  hello(req, res) {
-    res.send('Hello');
+  about(req, res) {
+    res.render('page/about', { title: 'About' });
   },
 };
