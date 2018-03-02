@@ -6,6 +6,7 @@ import config from '../config';
 import pugMdw from '../middleware/pug';
 import spaRenderMdw from '../middleware/spa';
 import errorMdw from '../middleware/error';
+import throwMdw from '../middleware/throw';
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.set('view engine', 'pug');
 
 app.use(morgan(config.env === 'production' ? 'short' : 'dev'));
 app.use(boom());
+app.use(throwMdw);
 app.use(pugMdw);
 app.locals.pretty = config.env === 'development';
 app.use(bodyParser.json());

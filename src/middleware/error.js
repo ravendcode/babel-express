@@ -1,35 +1,42 @@
+import config from '../config';
+
 export default (err, req, res, next) => {
   if (!err) {
     next();
     return;
   }
-  const result = {};
-  result.message = err.message;
-  result.statusCode = err.statusCode || 500;
-  switch (result.statusCode) {
+  const statusCode = err.statusCode || 500;
+  let errorName;
+  switch (err.statusCode) {
     case 400:
-      result.error = 'Bad Request';
+      errorName = 'BadRequestError';
       break;
     case 401:
-      result.error = 'Unauthorized';
+      errorName = 'UnauthorizedError';
       break;
     case 403:
-      result.error = 'Forbidden';
+      errorName = 'ForbiddenError';
       break;
     case 404:
-      result.error = 'Not Found';
+      errorName = 'NotFoundError';
       break;
     case 500:
-      result.error = 'Internal Server Error';
+      errorName = 'InternalServerError';
       break;
     default:
-      result.error = 'Internal Server Error';
+      errorName = 'InternalServerError';
       break;
   }
+  const result = {
+    statusCode,
+    error: errorName,
+  };
+  if (err.message) {
+    result.message = err.message;
+  }
+  if (result.statusCode === 500 && config.env === 'development') {
+    result.stack = err.stack;
+  }
   res.status(result.statusCode);
-  res.send({
-    statusCode: result.statusCode,
-    error: result.error,
-    message: result.message,
-  });
+  res.send({ ...result });
 };
