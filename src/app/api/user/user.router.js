@@ -11,7 +11,7 @@ router.route('/')
 
 router.route('/:id')
   .get(handler.getOne)
-  .put(handler.updateOne)
+  .patch(handler.updateOne)
   .delete(handler.deleteOne);
 
 export default router;

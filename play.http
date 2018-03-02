@@ -21,7 +21,7 @@ GET {{host}}/user/1
 
 ###
 
-PUT {{host}}/user/1
+PATCH {{host}}/user/1
 content-type: application/json
 
 {
