@@ -5,10 +5,10 @@ export default (err, req, res, next) => {
     next();
     return;
   }
-  const statusCode = err.statusCode || 500;
+  let statusCode = err.statusCode || 500;
   let errorName;
   let errorMessage;
-  switch (err.statusCode) {
+  switch (statusCode) {
     case 400:
       errorName = 'BadRequestError';
       errorMessage = 'Bad Request';
@@ -32,6 +32,7 @@ export default (err, req, res, next) => {
     default:
       errorName = 'InternalServerError';
       errorMessage = 'Internal Server Error';
+      statusCode = 500;
       break;
   }
   const result = {
