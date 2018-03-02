@@ -2,17 +2,13 @@
 
 @host = http://localhost:3000/api
 
-## API User
+### API User
 
-@name = user
-
-###
-
-GET {{host}}/{{name}}
+GET {{host}}/user
 
 ###
 
-POST {{host}}/{{name}}
+POST {{host}}/user
 content-type: application/json
 
 {
@@ -21,11 +17,11 @@ content-type: application/json
 
 ###
 
-GET {{host}}/{{name}}/1
+GET {{host}}/user/1
 
 ###
 
-PUT {{host}}/{{name}}/1
+PUT {{host}}/user/1
 content-type: application/json
 
 {
@@ -34,4 +30,4 @@ content-type: application/json
 
 ###
 
-DELETE {{host}}/{{name}}/1
+DELETE {{host}}/user/1

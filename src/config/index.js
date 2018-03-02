@@ -8,7 +8,7 @@ dotenv.config();
 
 const env = process.env.NODE_ENV || 'development';
 const port = env === 'production' ? 80 : 3000;
-const templatesDir = path.join(__dirname, '../../templates');
+const templatesDir = path.join(__dirname, '../../resources/templates');
 
 debug(`NODE_ENV is ${env}`);
 debug(`APP_NAME is ${process.env.APP_NAME}`);

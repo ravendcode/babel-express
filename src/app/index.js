@@ -1,22 +1,18 @@
 import express from 'express';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
-import config from './config';
-// import routes from './config/routes';
+import config from '../config';
 
 const app = express();
 
 app.set('views', config.templatesDir);
 app.set('view engine', 'pug');
 
-if (config.env === 'development') {
-  app.use(morgan('dev'));
-}
-
+app.use(morgan(config.env === 'production' ? 'short' : 'dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-config.routes(app);
+app.use(config.routes);
 
 app.get('/error', () => {
   throw new Error('aa');
