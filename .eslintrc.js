@@ -13,6 +13,7 @@ module.exports = {
     jquery: true,
     mocha: true,
     node: true,
+    jest: true,
   },
   globals: {
     io: true,

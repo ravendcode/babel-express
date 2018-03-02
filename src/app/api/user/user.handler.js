@@ -10,6 +10,7 @@ export default {
     res.send({ data: 'getAll' });
   },
   createOne(req, res) {
+    res.status(201);
     res.send({ data: 'createOne', body: req.body });
   },
   getOne(req, res) {
