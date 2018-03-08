@@ -48,7 +48,8 @@ export default (err, req, res, next) => {
     result.stack = err.stack;
   }
 
-  res.status(result.statusCode);
+  res.status = result.statusCode;
+  console.log(req.path);
   if (/^\/api/.test(req.path)) {
     res.send({ ...result });
   } else {

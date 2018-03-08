@@ -2,13 +2,13 @@ import jwt from 'jsonwebtoken';
 import user from '../../model/user';
 
 export default {
-  async register(req, res) {
+  async register(req, res, next) {
     try {
       const token = await jwt.sign({ id: user.id }, process.env.JWT_SECRET);
       res.status = 201;
       res.send({ token });
     } catch (e) {
-      res.throw(500, e.message);
+      next(e);
     }
   },
   async login(req, res) {
