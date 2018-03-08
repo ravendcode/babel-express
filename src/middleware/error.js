@@ -49,7 +49,6 @@ export default (err, req, res, next) => {
   }
 
   res.status = result.statusCode;
-  console.log(req.path);
   if (/^\/api/.test(req.path)) {
     res.send({ ...result });
   } else {
