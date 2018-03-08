@@ -1,0 +1,36 @@
+# API JWT
+
+@host = http://localhost:3000/api/jwt
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTIwNTM2MTg1fQ.im_Eufe7xbr8ZX2wYA6YTCwSyOubzCmQhTNLneA1n-I
+
+###
+
+POST {{host}}/register
+content-type: application/json
+
+{
+  "username": "Bob",
+  "email": "bob@email.com",
+  "password": "qwerty"
+}
+
+###
+
+POST {{host}}/login
+content-type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "email": "bob@email.com",
+  "password": "qwerty"
+}
+
+###
+
+DELETE {{host}}/logout
+content-type: application/json
+
+{
+  "jwtToken": ""
+}
