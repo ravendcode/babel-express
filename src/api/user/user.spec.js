@@ -10,32 +10,29 @@ describe('API', () => {
     test('should respond status and data', async () => {
       const res = await request(app).get(url);
       expect(res.status).toEqual(200);
-      expect(res.body.data).toEqual('getAll');
+      expect(res.body.message).toEqual('getAll');
     });
   });
   describe(`POST ${url}`, () => {
     test('should respond status and data', async () => {
       const data = {
-        username: 'John',
+        username: 'Test',
+        password: 'qwerty',
       };
       const res = await request(app)
         .post(url)
         .set('Content-Type', 'application/json')
         .set('Accept', 'application/json')
         .send(data);
-      expect(res.status).toEqual(201);
-      expect(res.body.data).toEqual('createOne');
-      expect(res.body.body).toHaveProperty('username');
-      expect(res.body.body).toEqual(data);
+      expect(res.status).toEqual(400);
     });
   });
   describe(`GET ${urlParam}`, () => {
     test('should respond status and data', async () => {
       const res = await request(app).get(urlParam);
       expect(res.status).toEqual(200);
-      expect(res.body.data).toEqual('getOne');
-      expect(res.body).toHaveProperty('param');
-      expect(res.body.param).toEqual(param);
+      expect(res.body.message).toEqual('getOne');
+      expect(res.body.data).toEqual(param);
     });
   });
   describe(`PATCH ${urlParam}`, () => {
@@ -49,16 +46,16 @@ describe('API', () => {
         .set('Accept', 'application/json')
         .send(data);
       expect(res.status).toEqual(200);
-      expect(res.body.data).toEqual('updateOne');
-      expect(res.body.body).toHaveProperty('username');
-      expect(res.body.body).toEqual(data);
+      expect(res.body.message).toEqual('updateOne');
+      expect(res.body.data).toHaveProperty('username');
+      expect(res.body.data).toEqual(data);
     });
   });
   describe(`DELETE ${urlParam}`, () => {
     test('should respond status and data', async () => {
       const res = await request(app).del(urlParam);
       expect(res.status).toEqual(200);
-      expect(res.body.data).toEqual('deleteOne');
+      expect(res.body.message).toEqual('deleteOne');
     });
   });
 });

@@ -1,10 +1,13 @@
 import express from 'express';
 import handler from './user.handler';
+import authMdw from '../../middleware/auth';
 
 const router = express.Router();
 
-router.param('id', handler.findByParam);
+router.get('/me', authMdw, handler.me);
+router.post('/login', handler.login);
 
+router.param('id', handler.findByParam);
 router.route('/')
   .get(handler.getAll)
   .post(handler.createOne);
