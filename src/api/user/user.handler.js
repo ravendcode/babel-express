@@ -30,7 +30,7 @@ export default {
         res.throw(400, `Username ${req.body.username} already taken`);
       }
       db.users.push(newUser);
-      await writeFile(config.resourcesDir + '/storage/memory/db.json', JSON.stringify(db, null, 2));
+      await writeFile(config.resourcesDir + '/storage/memory/dev.json', JSON.stringify(db, null, 2));
       res.status(201);
       res.send({ status: 'Created', message: 'createOne', data: newUser });
     } catch (err) {
