@@ -9,7 +9,7 @@
     "dev": "export DEBUG=app:* || set DEBUG=app:* && nodemon src --exec babel-node -e js,hbs,pug",
     "build": "yarn run clean && babel src -d dist -s --ignore spec.js,test.js",
     "clean": "rimraf ./dist",
-    "test:jest": "nodemon --watch src --exec jest src",
+    "test:jest": "nodemon --watch src --exec jest",
     "test:mocha": "nodemon --watch src --exec mocha --require babel-register src/**/*.spec.js",
     "test": "export NODE_ENV=test || set NODE_ENV=test&& yarn test:jest"
   },
