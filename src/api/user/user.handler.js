@@ -1,8 +1,8 @@
 import fs from 'fs';
 import { promisify } from 'util';
 import jwt from 'jsonwebtoken';
-import db from '../../../resources/storage/memory/db.json';
 import config from '../../config';
+import db from '../../../resources/storage/memory/dev.json';
 
 const writeFile = promisify(fs.writeFile);
 

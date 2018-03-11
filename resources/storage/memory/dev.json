@@ -29,12 +29,6 @@
       "username": "Bob",
       "password": "qwerty",
       "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNTIwNjE2NDAwfQ.MXtbi0-KCcWfJSQ_PGiiknm4cWIUZmr62Qr8GGFlcL4"
-    },
-    {
-      "id": 6,
-      "username": "Bob1",
-      "password": "qwerty",
-      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiaWF0IjoxNTIwNzYzNjkxfQ.d7Oijey5zUNv7Zbu_U4PZ8mb6toK1ME7RUbMkbm9FQQ"
     }
   ]
 }
