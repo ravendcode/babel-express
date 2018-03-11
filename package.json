@@ -10,7 +10,7 @@
     "build": "yarn run clean && babel src -d dist -s --ignore spec.js,test.js",
     "clean": "rimraf ./dist",
     "test:jest": "nodemon --watch src --exec jest src",
-    "test:mocha": "nodemon --exec mocha --require babel-register src/**/*.spec.js",
+    "test:mocha": "nodemon --watch src --exec mocha --require babel-register src/**/*.spec.js",
     "test": "export NODE_ENV=test || set NODE_ENV=test&& yarn test:jest"
   },
   "engines": {
