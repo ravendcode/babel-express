@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import db from '../../resources/storage/memory/dev.json';
+import db from '../../storage/memory/dev.json';
 
 export default async (req, res, next) => {
   try {

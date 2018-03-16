@@ -7,9 +7,9 @@ dotenv.config();
 
 const env = process.env.NODE_ENV || 'development';
 const port = env === 'production' ? 80 : process.env.PORT;
-const resourcesDir = path.join(__dirname, '../../resources');
-const templatesDir = path.join(resourcesDir, 'templates');
-const staticDir = path.join(resourcesDir, 'static');
+const rootDir = path.join(__dirname, '../../');
+const templatesDir = path.join(rootDir, 'templates');
+const staticDir = path.join(rootDir, 'static');
 const publicDir = path.join(__dirname, '../../public');
 const nodeModulesDir = path.join(__dirname, '../../node_modules');
 
@@ -19,7 +19,7 @@ debug(`APP_NAME is ${process.env.APP_NAME}`);
 export {
   env,
   port,
-  resourcesDir,
+  rootDir,
   templatesDir,
   staticDir,
   publicDir,

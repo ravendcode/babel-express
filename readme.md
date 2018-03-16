@@ -7,7 +7,7 @@
 
 ## Usage
 
-1. Rename `.env.dist` in `.env` and edit
+1. Rename `dist.env` in `.env` and edit
 2. Edit `src/config`
 3. `yarn install`
 4. `yarn dev`

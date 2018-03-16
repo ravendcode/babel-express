@@ -1,7 +1,7 @@
 import {
   env,
   port,
-  resourcesDir,
+  rootDir,
   templatesDir,
   staticDir,
   publicDir,
@@ -12,7 +12,7 @@ import routes from './routes';
 export default {
   env,
   port,
-  resourcesDir,
+  rootDir,
   templatesDir,
   staticDir,
   publicDir,
